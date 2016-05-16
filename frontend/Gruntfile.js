@@ -89,7 +89,8 @@ module.exports = function (grunt) {
                 '/app/styles',
                 connect.static('./app/styles')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+              require('./api')
             ];
           }
         }
@@ -380,7 +381,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'keycloak.json'
           ]
         }, {
           expand: true,
@@ -423,9 +425,16 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Build the mock backend
+    exec: {
+      buildMock: {
+        cmd: 'npm install',
+        cwd: './api' 
+      }
     }
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -434,6 +443,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'exec:buildMock',
       'wiredep',
       'concurrent:server',
       'postcss:server',

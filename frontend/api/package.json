@@ -1,0 +1,11 @@
+{
+  "name": "mock-api",
+  "version": "1.0.0",
+  "description": "Mock API for the backend",
+  "main": "index.js",
+  "dependencies": {
+      "body-parser": "^1.15.1",
+      "express": "^4.13.4"
+  },
+  "devDependencies": {}
+}

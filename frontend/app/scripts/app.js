@@ -40,6 +40,21 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/contacts/new', {
+        templateUrl: 'views//contacts/new.html',
+        controller: 'ContactsNewCtrl',
+        controllerAs: '/contacts/new'
+      })
+      .when('/contacts/view', {
+        templateUrl: 'views/contacts/view.html',
+        controller: 'ContactsViewCtrl',
+        controllerAs: 'contacts/view'
+      })
+      .when('/contacts/edit/:contactId', {
+        templateUrl: 'views/contacts/edit.html',
+        controller: 'ContactsEditCtrl',
+        controllerAs: 'contacts/edit'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -72,14 +87,14 @@ angular
             console.log('session timeout?');
             logout();
           } else if (rejection.status == 403) {
-            alert("Forbidden");
+            console.log("Forbidden");
           } else if (rejection.status == 404) {
-            alert("Not found");
+            console.log("Not found");
           } else if (rejection.status) {
             if (rejection.data && rejection.data.errorMessage) {
-              alert(rejection.data.errorMessage);
+              console.log(rejection.data.errorMessage);
             } else {
-              alert("An unexpected server error has occurred");
+              console.log("An unexpected server error has occurred");
             }
           }
           return $q.reject(rejection);
@@ -92,7 +107,7 @@ angular
     });
 
 
-angular.element(document).ready(function ($http) {
+angular.element(document).ready( function() {
   var keycloakAuth = new Keycloak('keycloak.json');
   auth.loggedIn = false;
 

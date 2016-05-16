@@ -49,8 +49,13 @@
       </div>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
+    <div class="container" ng-cloak="">
+      <div ng-controller="FlashCtrl" class="alert alert-dismissible" ng-class="'alert-' + flash.getMessage().type" role="alert" ng-show="showAlert">
+        <button type="button" class="close" ng-click="hideAlert()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{flash.getMessage().text}}
+      </div>
+      <div ng-view="">
+      </div>
     </div>
 
     <div class="footer">
@@ -91,6 +96,13 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
+        <script src="scripts/services/customerresource.js"></script>
+        <script src="scripts/controllers/contacts/new.js"></script>
+        <script src="scripts/services/flash.js"></script>
+        <script src="scripts/controllers/flash.js"></script>
+        <script src="scripts/services/contactresource.js"></script>
+        <script src="scripts/controllers/contacts/view.js"></script>
+        <script src="scripts/controllers/contacts/edit.js"></script>
         <!-- endbuild -->
 </body>
 </html>
