@@ -9,9 +9,5 @@
  */
 angular.module('noveaBankApp')
   .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    // This controller has no logic, for now.
   });

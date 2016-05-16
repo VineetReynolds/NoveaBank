@@ -30,6 +30,8 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/keycloak/dist/keycloak.js',
+      'bower_components/angularUtils-pagination/dirPagination.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

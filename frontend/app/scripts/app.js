@@ -26,7 +26,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'angularUtils.directives.dirPagination'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -69,6 +71,21 @@ angular
         templateUrl: 'views/transactions/payments/new.html',
         controller: 'TransactionsPaymentsNewCtrl',
         controllerAs: 'transactions/payments/new'
+      })
+      .when('/reports/monthly', {
+        templateUrl: 'views/reports/monthly.html',
+        controller: 'ReportsMonthlyCtrl',
+        controllerAs: 'reports/monthly'
+      })
+      .when('/reports/yearly', {
+        templateUrl: 'views/reports/yearly.html',
+        controller: 'ReportsYearlyCtrl',
+        controllerAs: 'reports/yearly'
+      })
+      .when('/reports/custom', {
+        templateUrl: 'views/reports/custom.html',
+        controller: 'ReportsCustomCtrl',
+        controllerAs: 'reports/custom'
       })
       .otherwise({
         redirectTo: '/'

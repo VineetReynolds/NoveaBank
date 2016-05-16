@@ -10,10 +10,11 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "keycloak": "^1.9.4"
+    "keycloak": "^1.9.4",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-bootstrap": "^1.3.2"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "appPath": "app",
   "moduleName": "noveaBankApp",
   "overrides": {
