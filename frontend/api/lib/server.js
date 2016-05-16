@@ -50,4 +50,37 @@ app.put('/api/customers/:customerId/contacts/1', function(req, res){
 	});
 });
 
+app.post('/api/customers/:customerId/deposits', function (req, res){
+	if(req.body.amount > 0) {
+		res.location('/api/' + req.params.customerId + "/deposits/1");
+		res.status(201).send(null);
+	} else {
+		res.status(500).json({
+			"message" : "Invalid amount"
+		});
+	}
+});
+
+app.post('/api/customers/:customerId/withdrawals', function (req, res){
+	if(req.body.amount > 0) {
+		res.location('/api/' + req.params.customerId + "/withdrawals/1");
+		res.status(201).send(null);
+	} else {
+		res.status(500).json({
+			"message" : "Invalid amount"
+		});
+	}
+});
+
+app.post('/api/customers/:customerId/payments', function (req, res){
+	if(req.body.amount > 0) {
+		res.location('/api/' + req.params.customerId + "/payments/1");
+		res.status(201).send(null);
+	} else {
+		res.status(500).json({
+			"message" : "Invalid amount"
+		});
+	}
+});
+
 module.exports = app;

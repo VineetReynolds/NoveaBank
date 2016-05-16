@@ -55,6 +55,21 @@ angular
         controller: 'ContactsEditCtrl',
         controllerAs: 'contacts/edit'
       })
+      .when('/transactions/deposits/new', {
+        templateUrl: 'views/transactions/deposits/new.html',
+        controller: 'TransactionsDepositsNewCtrl',
+        controllerAs: 'transactions/deposits/new'
+      })
+      .when('/transactions/withdrawals/new', {
+        templateUrl: 'views/transactions/withdrawals/new.html',
+        controller: 'TransactionsWithdrawalsNewCtrl',
+        controllerAs: 'transactions/withdrawals/new'
+      })
+      .when('/transactions/payments/new', {
+        templateUrl: 'views/transactions/payments/new.html',
+        controller: 'TransactionsPaymentsNewCtrl',
+        controllerAs: 'transactions/payments/new'
+      })
       .otherwise({
         redirectTo: '/'
       });
