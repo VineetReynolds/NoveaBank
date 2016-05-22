@@ -16,7 +16,8 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    configureProxies: 'grunt-connect-proxy'
   });
 
   // Configurable paths for the application
@@ -75,11 +76,22 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [{
+        context: '/api', // the context of the backend data service
+        host: 'localhost', // wherever the data service is running
+        port: 9080, // the port that the data service is running on
+        rewrite: {
+          '^/api': '/noveabank/api'
+        }
+      }],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
-            return [
+            // Setup the proxy
+            var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+            
+            var staticFiles = [
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -89,9 +101,10 @@ module.exports = function (grunt) {
                 '/app/styles',
                 connect.static('./app/styles')
               ),
-              connect.static(appConfig.app),
-              require('./api')
+              connect.static(appConfig.app)
             ];
+            Array.prototype.push.apply(middlewares, staticFiles);
+            return middlewares;
           }
         }
       },
@@ -443,7 +456,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'exec:buildMock',
+      'configureProxies:server',
       'wiredep',
       'concurrent:server',
       'postcss:server',
