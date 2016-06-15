@@ -16,6 +16,7 @@ spec:
         image: vineetreynolds/jenkins-host
         ports:
         - containerPort: 8080
+        - containerPort: 50000
         volumeMounts: 
         - mountPath: /var/jenkins_home
           name: jenkins-data
