@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 192.168.99.100:31500/vineetreynolds/noveabank-keycloak:1.0-5
+        image: 192.168.99.100:31500/vineetreynolds/noveabank-keycloak:1.0-11
         ports:
         - containerPort: 8080
