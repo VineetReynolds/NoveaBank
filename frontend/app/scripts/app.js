@@ -146,7 +146,7 @@ angular.element(document).ready( function() {
   keycloakAuth.init({ onLoad: 'login-required' }).success(function () {
     auth.loggedIn = true;
     auth.authz = keycloakAuth;
-    auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/NoveaBank/protocol/openid-connect/logout?redirect_uri=http://localhost:9000/";
+    auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/NoveaBank/protocol/openid-connect/logout?redirect_uri=http://192.168.99.100:30880/";
     angular.bootstrap(document, ['noveaBankApp']);
   }).error(function () {
     window.location.reload();

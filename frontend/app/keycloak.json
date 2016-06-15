@@ -1,7 +1,7 @@
 {
   "realm": "NoveaBank",
   "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl+KJj/r7h1jxPahX0zgbjCL5lXKlaOIuuOSjrsVOUOq4o9y5z+DK7wINRYhcOqU4Ort7V7lXv312QbfzMshdOnLs4lkl7bvokp9OqSdtN4srCgq3aii22JdsbqAbo8zFnYlhqZrwe2lgLDxdf9IKkmmT/n9jcdv8Mp8LLKE+fzPKE7VdR+ZnNxrvnwtPNKpgtNjMUcHIIP6eZj44sC6vs9iKiGvmw7JzoewuPpMAENHkRGqBfnEEB23egVYqIdlBAU1TxdnXVHQaJy3kWQRmjd5x6XPCQ0jm9KmJNvOFmnZFZd1yelXUeukEJX1mDjhAk5dLmth16v/DJYf4YhUL0QIDAQAB",
-  "auth-server-url": "http://localhost:8080/auth",
+  "auth-server-url": "http://192.168.99.100:30880/auth",
   "ssl-required": "external",
   "resource": "NoveaBank - Web",
   "public-client": true
