@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 192.168.99.100:31500/vineetreynolds/noveabank-backend:1.0-4
+        image: 192.168.99.100:31500/vineetreynolds/noveabank-backend:1.0-16
         ports:
         - containerPort: 8080

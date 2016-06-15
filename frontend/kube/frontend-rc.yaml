@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 192.168.99.100:31500/vineetreynolds/noveabank-frontend:1.0-39
+        image: 192.168.99.100:31500/vineetreynolds/noveabank-frontend:1.0-54
         ports:
         - containerPort: 80
