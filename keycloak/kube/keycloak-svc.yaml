@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: keycloak
   labels:
-    app: noveabank
+    app: noveabank-keycloak
 spec:
   ports:
   - name: "http"
     port: 8080
     targetPort: 8080
   selector:
-    app: noveabank
+    app: noveabank-keycloak

@@ -3,16 +3,16 @@ kind: ReplicationController
 metadata:
   name: noveabank-keycloak
   labels:
-    app: noveabank
+    app: noveabank-keycloak
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: noveabank
+        app: noveabank-keycloak
     spec:
       containers:
       - name: frontend
-        image: 192.168.99.100:31500/vineetreynolds/noveabank-keycloak
+        image: 192.168.99.100:31500/vineetreynolds/noveabank-keycloak:1.0-5
         ports:
         - containerPort: 8080

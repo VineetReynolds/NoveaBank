@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: frontend
   labels:
-    app: noveabank
+    app: noveabank-frontend
 spec:
   ports:
   - name: "http"
     port: 80
     targetPort: 80
   selector:
-    app: noveabank
+    app: noveabank-frontend

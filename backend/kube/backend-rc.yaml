@@ -3,16 +3,16 @@ kind: ReplicationController
 metadata:
   name: noveabank-backend
   labels:
-    app: noveabank
+    app: noveabank-backend
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: noveabank
+        app: noveabank-backend
     spec:
       containers:
       - name: frontend
-        image: 192.168.99.100:31500/vineetreynolds/noveabank-backend
+        image: 192.168.99.100:31500/vineetreynolds/noveabank-backend:1.0-3
         ports:
         - containerPort: 8080

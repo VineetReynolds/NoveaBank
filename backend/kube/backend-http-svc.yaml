@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: backend-http
   labels:
-    app: noveabank
+    app: noveabank-backend
 spec:
   ports:
   - port: 8080
@@ -11,4 +11,4 @@ spec:
     nodePort: 30990
   type: NodePort
   selector:
-    app: noveabank
+    app: noveabank-backend

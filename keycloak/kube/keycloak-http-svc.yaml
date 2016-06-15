@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: keycloak-http
   labels:
-    app: noveabank
+    app: noveabank-keycloak
 spec:
   ports:
   - port: 8080
@@ -11,4 +11,4 @@ spec:
     nodePort: 30880
   type: NodePort
   selector:
-    app: noveabank
+    app: noveabank-keycloak
