@@ -14,6 +14,7 @@ spec:
       containers:
       - name: jenkins
         image: vineetreynolds/jenkins-host
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         - containerPort: 50000
@@ -22,15 +23,10 @@ spec:
           name: jenkins-data
         - mountPath: /var/run/docker.sock
           name: docker-socket
-        - mountPath: /usr/local/bin/docker
-          name: docker-binary
       volumes:
         - name: jenkins-data
           hostPath:
-            path: /Users/vineet/apps/docker_volumes/jenkins
+            path: /var/lib/jenkins
         - name: docker-socket
           hostPath:
             path: /var/run/docker.sock
-        - name: docker-binary
-          hostPath:
-            path: /usr/local/bin/docker

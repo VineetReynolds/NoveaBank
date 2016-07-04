@@ -1,0 +1,41 @@
+#!groovy
+node('jenkins-slave') {
+   // Mark the code checkout 'stage'....
+   stage 'Checkout'
+
+   // Get some code from a GitHub repository
+   git url: 'https://github.com/VineetReynolds/NoveaBank.git', branch: 'step-3'
+
+   stage 'Install NodeJS'
+   // Get the NodeJS tool.
+   // ** NOTE: This 'NodeJS6.0.0' maven tool must be configured
+   // **       in the global configuration.           
+   def nodeHome = tool 'NodeJS6.0.0'
+   env.PATH = "${nodeHome}/bin:${env.PATH}"
+   
+   stage 'Install global Node packages'
+   sh "npm install -g grunt-cli bower"
+
+   // Mark the code build 'stage'....
+   stage 'Cleanup and Install'
+   dir('frontend') {
+    sh "npm cache clean"
+    sh "bower cache clean"
+    sh "npm install"
+    sh "bower install"
+   }
+
+   // Mark the code build 'stage'
+   stage 'Build'
+   dir('frontend') {
+     // Run the grunt build for the Gruntfile.js in the frontend directory
+     sh "grunt build"
+   }
+   
+   stage 'Create Docker Image'
+   // Run the docker build for the Dockerfile in the frontend directory
+   dir('frontend') {
+       sh "sudo docker build --no-cache=true -t 192.168.99.100:31500/vineetreynolds/noveabank-frontend:1.0-${env.BUILD_NUMBER} --pull=true ."
+       sh "sudo docker push 192.168.99.100:31500/vineetreynolds/noveabank-frontend:1.0-${env.BUILD_NUMBER}"
+   }
+}
